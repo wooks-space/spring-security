@@ -1,4 +1,4 @@
-package com.swhwang.mysql_connect;
+package com.swhwang.mysql_connect.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

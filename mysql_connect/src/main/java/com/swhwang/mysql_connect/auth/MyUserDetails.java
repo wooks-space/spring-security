@@ -1,9 +1,9 @@
-package com.swhwang.mysql_connect;
+package com.swhwang.mysql_connect.auth;
 
+import com.swhwang.mysql_connect.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.List;
