@@ -16,9 +16,10 @@ dependencies {
 
 > ### 스프링 시큐리티의 기본 구성<br> 
 > 스프링 시큐리티는 기본적으로 아래와 같은 방식으로 사용자 인증을 처리한다. <br>
+> 인증되지 않은 사용자는 기본 로그인 페이지로 리다이렉트 한다.<br>
 > 기본 인증 방식: 폼 로그인<br>
-> 기본 로그인 URL : http://localhost:8080/login<br>
-> 기본 로그인 POST URL : http://localhost:8080/loginform<br>
+> 기본 로그인 페이지 URL : [GET] http://localhost:8080/login<br>
+> 로그인 폼 전송 URL : [POST] http://localhost:8080/login<br>
 > * 스프링 시큐리티의 기본 로그인 페이지<br>
 ![img_1.png](img_1.png)
 
