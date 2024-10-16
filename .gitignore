@@ -1,1 +1,9 @@
+### gradle Build folder
 **/.gradle
+**/build/
+
+### Spring Security
+**/HELP.md
+
+## IDE setting
+.idea/
