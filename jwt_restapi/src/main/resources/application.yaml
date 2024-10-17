@@ -1,0 +1,18 @@
+my_value:
+  key: my_secret_key
+spring:
+  application:
+    name: jwt_restapi
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://34.47.78.171:3306/user"
+    username: "root"
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect # Hibernate? ??? SQL ??, MySQL 8.0
+    hibernate:
+      ddl-auto: update # Hibernate? ?????? ??? ?? ??? ??, update? ????? ??
+    show-sql: true # Hibernate? ???? ?? ?? ??
+    properties:
+      hibernate:
+        format_sql: true # Hibernate? ?? ??? ??? ?? ??
