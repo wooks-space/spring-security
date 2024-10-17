@@ -1,7 +1,9 @@
-package com.swhwang.mysql_connect.config;
+package com.swhwang.mysql_connect.auth;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebMvc
-public class SecurityConfigure {
+public class LoginSecurityConfigure {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -18,15 +20,16 @@ public class SecurityConfigure {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf->csrf.disable());
         http.formLogin(form->
                 form.loginProcessingUrl("/login")
-                        .successHandler((request, response, authentication) -> response.setStatus(201))
-                        .failureHandler((request, response, authentication) -> response.setStatus(401))
+                        .successHandler((request, response, authentication) ->
+                                response.setStatus(HttpServletResponse.SC_OK))
+                        .defaultSuccessUrl("/index.html", true)
+                        .failureHandler((request, response, authentication) ->
+                                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
         );
         http.authorizeRequests(requests->
-                requests.requestMatchers("/login").permitAll()
-                        .requestMatchers("/join").permitAll()
+                requests.requestMatchers("/login","/join").permitAll()
                         .anyRequest().authenticated()
         );
         return http.build();

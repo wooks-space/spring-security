@@ -1,5 +1,7 @@
-package com.swhwang.mysql_connect.user;
+package com.swhwang.mysql_connect.config;
 
+import com.swhwang.mysql_connect.user.User;
+import com.swhwang.mysql_connect.user.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
